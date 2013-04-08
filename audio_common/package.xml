@@ -1,6 +1,6 @@
 <package>
    <name>audio_common</name>
-   <version>0.2.0</version>
+   <version>0.2.1</version>
    <description>
       Common code for working with audio in ROS
    </description>
@@ -10,6 +10,8 @@
    <url type="website">http://ros.org/wiki/audio_common</url>
    <url type="repository">https://github.com/ros-drivers/audio_common</url>
    <url type="bugtracker">https://github.com/ros-drivers/audio_common/issues</url>
+
+   <buildtool_depend>catkin</buildtool_depend>
 
    <run_depend>audio_capture</run_depend>
    <run_depend>audio_common_msgs</run_depend>
