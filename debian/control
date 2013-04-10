@@ -1,0 +1,12 @@
+Source: ros-hydro-sound-play
+Section: misc
+Priority: extra
+Maintainer: Austin Hendrix <ahendrix@willowgarage.com>
+Build-Depends: debhelper (>= 7.0.50~), libgstreamer-plugins-base0.10-dev, libgstreamer0.10-dev, ros-hydro-audio-common-msgs, ros-hydro-catkin, ros-hydro-diagnostic-msgs, ros-hydro-message-generation, ros-hydro-roscpp, ros-hydro-roslib
+Homepage: http://ros.org/wiki/sound_play
+Standards-Version: 3.9.2
+
+Package: ros-hydro-sound-play
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, festival, festvox-kallpc16k, gstreamer0.10-plugins-good, gstreamer0.10-plugins-ugly, libgstreamer-plugins-base0.10-0, libgstreamer0.10-0, python-gst0.10, ros-hydro-audio-common-msgs, ros-hydro-diagnostic-msgs, ros-hydro-message-runtime, ros-hydro-roscpp, ros-hydro-roslib, ros-hydro-rospy
+Description: sound_play provides a ROS node that translates commands on a ROS topic (robotsound) into sounds. The node supports built-in sounds, playing OGG/WAV files, and doing speech synthesis via festival. C++ and Python bindings allow this node to be used without understanding the details of the message format, allowing faster development and resilience to message format changes.
