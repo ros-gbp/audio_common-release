@@ -1,0 +1,12 @@
+Source: ros-hydro-audio-capture
+Section: misc
+Priority: extra
+Maintainer: "Austin Hendrix <ahendrix@willowgarage.com>"
+Build-Depends: debhelper (>= 7.0.50~), libgstreamer-plugins-base0.10-dev, libgstreamer0.10-dev, ros-hydro-audio-common-msgs, ros-hydro-catkin, ros-hydro-roscpp
+Homepage: http://ros.org/wiki/audio_capture
+Standards-Version: 3.9.2
+
+Package: ros-hydro-audio-capture
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, gstreamer0.10-plugins-good, gstreamer0.10-plugins-ugly, libgstreamer-plugins-base0.10-0, libgstreamer0.10-0, ros-hydro-audio-common-msgs, ros-hydro-roscpp
+Description: Transports audio from a source to a destination. Audio sources can come from a microphone or file. The destination can play the audio or save it to an mp3 file.
