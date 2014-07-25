@@ -1,0 +1,12 @@
+Source: ros-hydro-audio-common-msgs
+Section: misc
+Priority: extra
+Maintainer: Austin Hendrix <ahendrix@willowgarage.com>
+Build-Depends: debhelper (>= 9.0.0), ros-hydro-catkin, ros-hydro-message-generation
+Homepage: http://ros.org/wiki/audio_common_msgs
+Standards-Version: 3.9.2
+
+Package: ros-hydro-audio-common-msgs
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-hydro-message-runtime
+Description: Messages for transmitting audio via ROS
