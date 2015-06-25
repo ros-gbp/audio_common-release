@@ -1,0 +1,12 @@
+Source: ros-jade-sound-play
+Section: misc
+Priority: extra
+Maintainer: Austin Hendrix <ahendrix@willowgarage.com>
+Build-Depends: debhelper (>= 9.0.0), libgstreamer-plugins-base0.10-dev, libgstreamer0.10-dev, ros-jade-audio-common-msgs, ros-jade-catkin, ros-jade-diagnostic-msgs, ros-jade-message-generation, ros-jade-roscpp, ros-jade-roslib
+Homepage: http://ros.org/wiki/sound_play
+Standards-Version: 3.9.2
+
+Package: ros-jade-sound-play
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, festival, festvox-kallpc16k, gstreamer0.10-plugins-good, gstreamer0.10-plugins-ugly, libgstreamer-plugins-base0.10-0, libgstreamer0.10-0, python-gst0.10, ros-jade-audio-common-msgs, ros-jade-diagnostic-msgs, ros-jade-message-runtime, ros-jade-roscpp, ros-jade-roslib, ros-jade-rospy
+Description: sound_play provides a ROS node that translates commands on a ROS topic (robotsound) into sounds. The node supports built-in sounds, playing OGG/WAV files, and doing speech synthesis via festival. C++ and Python bindings allow this node to be used without understanding the details of the message format, allowing faster development and resilience to message format changes.
