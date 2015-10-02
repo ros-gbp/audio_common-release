@@ -1,0 +1,12 @@
+Source: ros-jade-audio-common
+Section: misc
+Priority: extra
+Maintainer: Austin Hendrix <namniart@gmail.com>
+Build-Depends: debhelper (>= 9.0.0), ros-jade-catkin
+Homepage: http://ros.org/wiki/audio_common
+Standards-Version: 3.9.2
+
+Package: ros-jade-audio-common
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-jade-audio-capture, ros-jade-audio-common-msgs, ros-jade-audio-play, ros-jade-sound-play
+Description: Common code for working with audio in ROS
