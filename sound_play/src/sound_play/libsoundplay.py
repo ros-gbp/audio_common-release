@@ -86,7 +86,7 @@ class Sound:
 
 class SoundClient:
     def __init__(self):
-        self.pub = rospy.Publisher('robotsound', SoundRequest)
+        self.pub = rospy.Publisher('robotsound', SoundRequest, queue_size=5)
 
 ## \brief Create a voice Sound.
 ##
@@ -186,6 +186,41 @@ class SoundClient:
           rootdir = os.path.join(roslib.package.get_pkg_dir('sound_play'),'sounds')
           sound = rootdir + "/" + sound
         self.sendMsg(SoundRequest.PLAY_FILE, SoundRequest.PLAY_STOP, sound)
+
+## \brief Plays a WAV or OGG file
+## 
+## Plays a WAV or OGG file once. The playback can be stopped by stopWaveFromPkg or
+## stopAll.
+## 
+## \param package Package name containing the sound file.
+## \param sound Filename of the WAV or OGG file. Must be an path relative to the package valid
+## on the computer on which the sound_play node is running
+
+    def playWaveFromPkg(self, package, sound):
+        self.sendMsg(SoundRequest.PLAY_FILE, SoundRequest.PLAY_ONCE, sound, package)
+
+## \brief Plays a WAV or OGG file repeatedly
+## 
+## Plays a WAV or OGG file repeatedly until stopWaveFromPkg or stopAll is used.
+## 
+## \param package Package name containing the sound file.
+## \param sound Filename of the WAV or OGG file. Must be an path relative to the package valid
+## on the computer on which the sound_play node is running
+
+    def startWaveFromPkg(self, package, sound):
+        self.sendMsg(SoundRequest.PLAY_FILE, SoundRequest.PLAY_START, sound, package)
+
+##  \brief Stop playing a WAV or OGG file
+## 
+## Stops playing a file that was previously started by playWaveFromPkg or
+## startWaveFromPkg.
+## 
+## \param package Package name containing the sound file.
+## \param sound Filename of the WAV or OGG file. Must be an path relative to the package valid
+## on the computer on which the sound_play node is running
+
+    def stopWaveFromPkg(self,sound, package):
+        self.sendMsg(SoundRequest.PLAY_FILE, SoundRequest.PLAY_STOP, sound, package)
 
 ## \brief Play a buildin sound
 ##
