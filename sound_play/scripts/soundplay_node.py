@@ -56,7 +56,7 @@ try:
 except:
     str="""
 **************************************************************
-Error opening pygst. Is gstreamer installed? (sudo apt-get install python-gst0.10 
+Error opening pygst. Is gstreamer installed? (sudo apt-get install python-gst0.10
 **************************************************************
 """
     rospy.logfatal(str)
@@ -182,7 +182,7 @@ class soundplay:
     def stopdict(self,dict):
         for sound in dict.values():
             sound.stop()
-    
+
     def stopall(self):
         self.stopdict(self.builtinsounds)
         self.stopdict(self.filesounds)
@@ -229,7 +229,7 @@ class soundplay:
                         if os.stat(wavfilename).st_size == 0:
                             raise OSError # So we hit the same catch block
                     except OSError:
-                        rospy.logerr('Sound synthesis failed. Is festival installed? Is a festival voice installed? Try running "rosdep satisfy sound_play|sh". Refer to http://pr.willowgarage.com/wiki/sound_play/Troubleshooting')
+                        rospy.logerr('Sound synthesis failed. Is festival installed? Is a festival voice installed? Try running "rosdep satisfy sound_play|sh". Refer to http://wiki.ros.org/sound_play/Troubleshooting')
                         return
                     self.voicesounds[data.arg] = soundtype(wavfilename)
                 finally:
@@ -288,8 +288,9 @@ class soundplay:
                 self.active_sounds = self.active_sounds + 1
         for key in purgelist:
            rospy.logdebug('Purging %s from cache'%key)
+           dict[key].stop() # clean up resources
            del dict[key]
-    
+
     def cleanup(self):
         self.mutex.acquire()
         try:
@@ -320,7 +321,7 @@ class soundplay:
                 ds.message = "Sound device not open yet."
             else:
                 ds.level = DiagnosticStatus.ERROR
-                ds.message = "Can't open sound device. See http://pr.willowgarage.com/wiki/sound_play/Troubleshooting"
+                ds.message = "Can't open sound device. See http://wiki.ros.org/sound_play/Troubleshooting"
             da.status.append(ds)
             da.header.stamp = rospy.get_rostime()
             self.diagnostic_pub.publish(da)
@@ -373,9 +374,9 @@ class soundplay:
 
     def __init__(self):
         rospy.init_node('sound_play')
-        self.diagnostic_pub = rospy.Publisher("/diagnostics", DiagnosticArray)
+        self.diagnostic_pub = rospy.Publisher("/diagnostics", DiagnosticArray, queue_size=1)
         rootdir = os.path.join(roslib.packages.get_pkg_dir('sound_play'),'sounds')
-        
+
         self.builtinsoundparams = {
                 SoundRequest.BACKINGUP              : (os.path.join(rootdir, 'BACKINGUP.ogg'), 0.1),
                 SoundRequest.NEEDS_UNPLUGGING       : (os.path.join(rootdir, 'NEEDS_UNPLUGGING.ogg'), 1),
@@ -383,7 +384,7 @@ class soundplay:
                 SoundRequest.NEEDS_UNPLUGGING_BADLY : (os.path.join(rootdir, 'NEEDS_UNPLUGGING_BADLY.ogg'), 1),
                 SoundRequest.NEEDS_PLUGGING_BADLY   : (os.path.join(rootdir, 'NEEDS_PLUGGING_BADLY.ogg'), 1),
                 }
-        
+
         self.mutex = threading.Lock()
         sub = rospy.Subscriber("robotsound", SoundRequest, self.callback)
         self._as = actionlib.SimpleActionServer('sound_play', SoundRequestAction, execute_cb=self.execute_cb, auto_start = False)
@@ -422,13 +423,13 @@ class soundplay:
         self.hotlist = []
         if not self.initialized:
             rospy.loginfo('sound_play node is ready to play sound')
-            
+
     def sleep(self, duration):
-        try:    
-            rospy.sleep(duration)   
+        try:
+            rospy.sleep(duration)
         except rospy.exceptions.ROSInterruptException:
             pass
-    
+
     def idle_loop(self):
         self.last_activity_time = rospy.get_time()
         while (rospy.get_time() - self.last_activity_time < 10 or
@@ -442,4 +443,3 @@ class soundplay:
 
 if __name__ == '__main__':
     soundplay()
-
