@@ -1,3 +1,29 @@
+## audio_common (jade) - 0.2.9-0
+
+The packages in the `audio_common` repository were released into the `jade` distro by running `/usr/bin/bloom-release -t jade -r jade audio_common` on `Wed, 02 Dec 2015 18:02:03 -0000`
+
+These packages were released:
+- `audio_capture`
+- `audio_common`
+- `audio_common_msgs`
+- `audio_play`
+- `sound_play`
+
+Version of package(s) in repository `audio_common`:
+- upstream repository: https://github.com/ros-drivers/audio_common.git
+- release repository: https://github.com/ros-gbp/audio_common-release.git
+- rosdistro version: `0.2.8-0`
+- old version: `0.2.8-0`
+- new version: `0.2.9-0`
+
+Versions of tools used:
+- bloom version: `0.5.20`
+- catkin_pkg version: `0.2.10`
+- rosdep version: `0.11.4`
+- rosdistro version: `0.4.2`
+- vcstools version: `0.1.38`
+
+
 ## audio_common (indigo) - 0.2.9-0
 
 The packages in the `audio_common` repository were released into the `indigo` distro by running `/usr/bin/bloom-release -t indigo -r indigo audio_common` on `Wed, 02 Dec 2015 17:56:39 -0000`
