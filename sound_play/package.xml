@@ -1,6 +1,6 @@
 <package>
    <name>sound_play</name>
-   <version>0.2.8</version>
+   <version>0.2.9</version>
    <description>
       sound_play provides a ROS node that translates commands on a ROS topic (<tt>robotsound</tt>) into sounds. The node supports built-in sounds, playing OGG/WAV files, and doing speech synthesis via festival. C++ and Python bindings allow this node to be used without understanding the details of the message format, allowing faster development and resilience to message format changes.
    </description>
@@ -16,6 +16,7 @@
    <build_depend>roscpp</build_depend>
    <build_depend>roslib</build_depend>
    <build_depend>actionlib_msgs</build_depend>
+   <build_depend>actionlib</build_depend>
    <build_depend>audio_common_msgs</build_depend>
    <build_depend>diagnostic_msgs</build_depend>
    <build_depend>libgstreamer0.10-dev</build_depend>
@@ -40,5 +41,3 @@
       <cpp cflags="-I${prefix}/include -I${prefix}/msg/cpp" />
    </export>
 </package>
-
-
