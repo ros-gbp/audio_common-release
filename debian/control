@@ -1,0 +1,12 @@
+Source: ros-jade-audio-play
+Section: misc
+Priority: extra
+Maintainer: Austin Hendrix <namniart@gmail.com>
+Build-Depends: debhelper (>= 9.0.0), libgstreamer-plugins-base0.10-dev, libgstreamer0.10-dev, ros-jade-audio-common-msgs, ros-jade-catkin, ros-jade-roscpp
+Homepage: http://ros.org/wiki/audio_play
+Standards-Version: 3.9.2
+
+Package: ros-jade-audio-play
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, gstreamer0.10-plugins-good, gstreamer0.10-plugins-ugly, libgstreamer-plugins-base0.10-0, libgstreamer0.10-0, ros-jade-audio-common-msgs, ros-jade-roscpp
+Description: Outputs audio to a speaker from a source node.

@@ -1,0 +1,100 @@
+ros-jade-audio-play (0.2.11-0utopic) utopic; urgency=high
+
+
+
+ -- Austin Hendrix <namniart@gmail.com>  Tue, 16 Feb 2016 08:00:00 -0000
+
+ros-jade-audio-play (0.2.10-0utopic) utopic; urgency=high
+
+
+
+ -- Austin Hendrix <namniart@gmail.com>  Thu, 21 Jan 2016 08:00:00 -0000
+
+ros-jade-audio-play (0.2.9-0utopic) utopic; urgency=high
+
+
+
+ -- Austin Hendrix <namniart@gmail.com>  Wed, 02 Dec 2015 08:00:00 -0000
+
+ros-jade-audio-play (0.2.8-0utopic) utopic; urgency=high
+
+  * Changed message level to warning
+  * Fixed underflow.
+    Before the sink buffer underflows the pipeline is paused. When data is received again the pipeline is set to playing again.
+  * Change audio sink to autoaudiosink
+  * Update maintainer email
+  * Contributors: Benny, Hans Gaiser, trainman419
+
+ -- Austin Hendrix <namniart@gmail.com>  Fri, 02 Oct 2015 07:00:00 -0000
+
+ros-jade-audio-play (0.2.7-0utopic) utopic; urgency=high
+
+
+
+ -- Austin Hendrix <namniart@gmail.com>  Fri, 25 Jul 2014 07:00:00 -0000
+
+ros-jade-audio-play (0.2.6-0utopic) utopic; urgency=high
+
+  * audio_capture and play _require_ gstreamer, it's not optional
+  * Contributors: v4hn
+
+ -- Austin Hendrix <namniart@gmail.com>  Wed, 26 Feb 2014 08:00:00 -0000
+
+ros-jade-audio-play (0.2.5-0utopic) utopic; urgency=high
+
+  * "0.2.5"
+  * Contributors: trainman419
+
+ -- Austin Hendrix <namniart@gmail.com>  Thu, 23 Jan 2014 08:00:00 -0000
+
+ros-jade-audio-play (0.2.4-0utopic) utopic; urgency=high
+
+
+
+ -- Austin Hendrix <namniart@gmail.com>  Tue, 10 Sep 2013 07:00:00 -0000
+
+ros-jade-audio-play (0.2.3-0utopic) utopic; urgency=high
+
+  * Fix dependencies and install rules.
+  * Contributors: Austin Hendrix
+
+ -- Austin Hendrix <namniart@gmail.com>  Mon, 15 Jul 2013 07:00:00 -0000
+
+ros-jade-audio-play (0.2.2-0utopic) utopic; urgency=high
+
+
+
+ -- Austin Hendrix <namniart@gmail.com>  Wed, 10 Apr 2013 07:00:00 -0000
+
+ros-jade-audio-play (0.2.1-0utopic) utopic; urgency=high
+
+
+
+ -- Austin Hendrix <namniart@gmail.com>  Mon, 08 Apr 2013 20:59:00 -0000
+
+ros-jade-audio-play (0.2.0-0utopic) utopic; urgency=high
+
+  * Finish catkinizing audio_common.
+  * Catkinize audio_play.
+  * Fix typo in package.xml
+  * Versions and more URLs.
+  * Convert manifests to package.xml
+  * Ditch old makefiles.
+  * Updates manifest
+  * Updated manifests for rodep2
+  * oneiric build fixes, bump version to 0.1.6
+  * Removed another duplicate thread::thread
+  * Added a rosdep.yaml file
+  * Fixed to use audio_common_msgs
+  * Added ability to use different festival voices
+  * Updated documentation
+  * Update to audio_play
+  * Fixed ignore files
+  * Added hgignore files
+  * Audio_capture and audio_play working
+  * Making separate audio_capture and audio_play packages
+  * Contributors: Austin Hendrix, Brian Gerkey, Nate Koenig, nkoenig
+
+ -- Austin Hendrix <namniart@gmail.com>  Mon, 08 Apr 2013 20:49:00 -0000
+
+
