@@ -63,6 +63,7 @@ if __name__ == '__main__':
     rospy.sleep(1)
 
     voice = 'voice_kal_diphone'
+    volume = 1.0
 
     if len(sys.argv) == 1:
         s = sys.stdin.read()
@@ -71,9 +72,12 @@ if __name__ == '__main__':
 
         if len(sys.argv) > 2:
             voice = sys.argv[2]
+        if len(sys.argv) > 3:
+            volume = float(sys.argv[3])
 
     print 'Saying: %s' % s
     print 'Voice: %s' % voice
+    print 'Volume: %s' % volume
 
-    soundhandle.say(s, voice)
+    soundhandle.say(s, voice, volume)
     rospy.sleep(1)

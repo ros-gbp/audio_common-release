@@ -2,17 +2,36 @@
 Changelog for package audio_play
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-0.2.12 (2016-02-29)
--------------------
+0.3.1 (2016-08-28)
+------------------
+* Update to new gstreamer rosdeps
+* #70 can launch these in different namespaces with different microphones, and both are operating.
+* Add changelogs
+* Changed message level to warning
+* Fixed problem that CMake uses gstreamer-0.1 instead of gstreamer-1.0
+* Fixed underflow.
+  Before the sink buffer underflows the pipeline is paused. When data is received again the pipeline is set to playing again.
+* Added gstreamer 1.0 dependecies
+* Ported to gstreamer 1.0
+  package.xml dependencies still missing
+* Change audio sink to autoaudiosink
+* Update maintainer email
+* Contributors: Benny, Hans Gaiser, Lucas Walter, trainman419
 
 0.2.11 (2016-02-16)
 -------------------
+* Add changelogs
+* Contributors: trainman419
 
 0.2.10 (2016-01-21)
 -------------------
+* Add changelogs
+* Contributors: trainman419
 
 0.2.9 (2015-12-02)
 ------------------
+* Add changelogs
+* Contributors: trainman419
 
 0.2.8 (2015-10-02)
 ------------------
