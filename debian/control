@@ -1,0 +1,13 @@
+Source: ros-kinetic-audio-capture
+Section: misc
+Priority: extra
+Maintainer: Austin Hendrix <namniart@gmail.com>
+Build-Depends: debhelper (>= 9.0.0), libgstreamer-plugins-base1.0-dev, libgstreamer1.0-dev, ros-kinetic-audio-common-msgs, ros-kinetic-catkin, ros-kinetic-roscpp
+Homepage: http://ros.org/wiki/audio_capture
+Standards-Version: 3.9.2
+
+Package: ros-kinetic-audio-capture
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, gir1.2-gst-plugins-base-1.0, gir1.2-gstreamer-1.0, gstreamer1.0-plugins-base, gstreamer1.0-plugins-good, gstreamer1.0-plugins-ugly, gstreamer1.0-tools, libgstreamer-plugins-base1.0-0, libgstreamer-plugins-good1.0-0, libgstreamer1.0-0, ros-kinetic-audio-common-msgs, ros-kinetic-roscpp
+Description: Transports audio from a source to a destination.
+ Audio sources can come from a microphone or file. The destination can play the audio or save it to an mp3 file.
