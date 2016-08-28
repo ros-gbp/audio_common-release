@@ -1,0 +1,13 @@
+Source: ros-kinetic-sound-play
+Section: misc
+Priority: extra
+Maintainer: Austin Hendrix <namniart@gmail.com>
+Build-Depends: debhelper (>= 9.0.0), ros-kinetic-actionlib, ros-kinetic-actionlib-msgs, ros-kinetic-audio-common-msgs, ros-kinetic-catkin, ros-kinetic-diagnostic-msgs, ros-kinetic-message-generation, ros-kinetic-roscpp, ros-kinetic-roslib
+Homepage: http://ros.org/wiki/sound_play
+Standards-Version: 3.9.2
+
+Package: ros-kinetic-sound-play
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, festival, festvox-kallpc16k, gir1.2-gst-plugins-base-1.0, gir1.2-gstreamer-1.0, gstreamer1.0-plugins-base, gstreamer1.0-plugins-good, gstreamer1.0-plugins-ugly, gstreamer1.0-tools, libgstreamer-plugins-base1.0-0, libgstreamer-plugins-good1.0-0, libgstreamer1.0-0, python-gi, ros-kinetic-actionlib-msgs, ros-kinetic-audio-common-msgs, ros-kinetic-diagnostic-msgs, ros-kinetic-message-runtime, ros-kinetic-roscpp, ros-kinetic-roslib, ros-kinetic-rospy
+Description: sound_play provides a ROS node that translates commands on a ROS topic (robotsound) into sounds.
+ The node supports built-in sounds, playing OGG/WAV files, and doing speech synthesis via festival. C++ and Python bindings allow this node to be used without understanding the details of the message format, allowing faster development and resilience to message format changes.
