@@ -1,0 +1,12 @@
+Source: ros-kinetic-audio-common
+Section: misc
+Priority: extra
+Maintainer: Austin Hendrix <namniart@gmail.com>
+Build-Depends: debhelper (>= 9.0.0), ros-kinetic-catkin
+Homepage: http://ros.org/wiki/audio_common
+Standards-Version: 3.9.2
+
+Package: ros-kinetic-audio-common
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-kinetic-audio-capture, ros-kinetic-audio-common-msgs, ros-kinetic-audio-play, ros-kinetic-sound-play
+Description: Common code for working with audio in ROS
