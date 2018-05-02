@@ -1,3 +1,31 @@
+## audio_common (indigo) - 0.2.13-0
+
+The packages in the `audio_common` repository were released into the `indigo` distro by running `/usr/bin/bloom-release --non-interactive --rosdistro indigo --track indigo audio_common` on `Wed, 02 May 2018 17:07:47 -0000`
+
+These packages were released:
+- `audio_capture`
+- `audio_common`
+- `audio_common_msgs`
+- `audio_play`
+- `sound_play`
+
+Version of package(s) in repository `audio_common`:
+
+- upstream repository: https://github.com/ros-drivers/audio_common.git
+- release repository: https://github.com/ros-gbp/audio_common-release.git
+- rosdistro version: `0.2.12-0`
+- old version: `0.2.12-0`
+- new version: `0.2.13-0`
+
+Versions of tools used:
+
+- bloom version: `0.6.4`
+- catkin_pkg version: `0.4.1`
+- rosdep version: `0.12.2`
+- rosdistro version: `0.6.8`
+- vcstools version: `0.1.40`
+
+
 ## audio_common (kinetic) - 0.3.1-0
 
 The packages in the `audio_common` repository were released into the `kinetic` distro by running `/usr/bin/bloom-release --track kinetic --ros-distro kinetic --new-track audio_common` on `Sun, 28 Aug 2016 20:27:07 -0000`
