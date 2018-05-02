@@ -1,3 +1,31 @@
+## audio_common (lunar) - 0.3.2-0
+
+The packages in the `audio_common` repository were released into the `lunar` distro by running `/usr/bin/bloom-release --non-interactive --rosdistro lunar --track lunar audio_common` on `Wed, 02 May 2018 17:16:45 -0000`
+
+These packages were released:
+- `audio_capture`
+- `audio_common`
+- `audio_common_msgs`
+- `audio_play`
+- `sound_play`
+
+Version of package(s) in repository `audio_common`:
+
+- upstream repository: https://github.com/ros-drivers/audio_common.git
+- release repository: unknown
+- rosdistro version: `null`
+- old version: `null`
+- new version: `0.3.2-0`
+
+Versions of tools used:
+
+- bloom version: `0.6.4`
+- catkin_pkg version: `0.4.1`
+- rosdep version: `0.12.2`
+- rosdistro version: `0.6.8`
+- vcstools version: `0.1.40`
+
+
 ## audio_common (kinetic) - 0.3.2-0
 
 The packages in the `audio_common` repository were released into the `kinetic` distro by running `/usr/bin/bloom-release --non-interactive --rosdistro kinetic --track kinetic audio_common` on `Wed, 02 May 2018 17:11:35 -0000`
