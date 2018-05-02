@@ -2,26 +2,20 @@
 Changelog for package audio_common
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-0.3.1 (2016-08-28)
-------------------
-* Add changelogs
-* Update maintainer email
-* Contributors: trainman419
+0.2.13 (2018-05-02)
+-------------------
+
+0.2.12 (2016-02-29)
+-------------------
 
 0.2.11 (2016-02-16)
 -------------------
-* Add changelogs
-* Contributors: trainman419
 
 0.2.10 (2016-01-21)
 -------------------
-* Add changelogs
-* Contributors: trainman419
 
 0.2.9 (2015-12-02)
 ------------------
-* Add changelogs
-* Contributors: trainman419
 
 0.2.8 (2015-10-02)
 ------------------

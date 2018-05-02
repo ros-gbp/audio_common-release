@@ -2,82 +2,38 @@
 Changelog for package sound_play
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-0.3.1 (2016-08-28)
-------------------
-* Update to new gstreamer rosdeps
-* Update sound_play to gstreamer 1.0
+0.2.13 (2018-05-02)
+-------------------
+* [sound_play] add option to select audio device to play / record (`#87 <https://github.com/ros-drivers/audio_common/issues/87>`_)
+  * [sound_play] add option to select audio device to play
+  * [sound_play] reformat README to markdown; add usage to set device via rosparam
+  * audio_capture: add option for selecting device to use
+  * audio_play: add option to select device for playing audio
+  * add device argument to launch files
+* Contributors: Yuki Furuta
+
+0.2.12 (2016-02-29)
+-------------------
 * remove chance of uninitialised variable being called in a subscriber callback.
-* Add changelogs
-* Issue: The error checks for missing publisher/action client in sendMsg were inverted.
-  The non-blocking brach tested the action client while the blocking branch
-  tested the publisher.
-  Fix: Inverted the blocking boolean for both branchs.
-* sound_play: Fix build with -DCATKIN_ENABLE_TESTING=OFF.
-  https://bugs.gentoo.org/show_bug.cgi?id=567466
-* [soundplay_node] fix resources not being released on dict cleanup
-  This was resulting in the number of sink inputs reaching the maximum threshold,
-  (32 on ubuntu 14.04 with pulseaudio 4.0) after which no more sounds could be
-  played by the node. It would only happen if the rate of sounds being played was
-  slower than the dictionary cleanup.
-* depend on actionlib.
-* Introduce unit test to ensure soundclient is started correctly.
-* Example of using the explicit blocking parameter to override the class setting.
-* SoundClient can also explicitly specify whether or not to block while playing the sound.
-  Each play/repeat/say/... method can take an option blocking=True|False argument (using **kwargs), which over-rides the class-wide setting.
-* Merge pull request #62 from felixduvallet/set_queue_size
-  Set queue_size in soundplay_node Publisher
-* do both in same script.
-* Added script showing the various blocking/non-blocking ways of using SoundClient.
-* removed trailing whitespace only
-* loginfo -> logdebug.
-* Slightly more condensed version of thresholding.
-* Enable blocking calls inside libsoundplay's SoundClient.
-  This makes use of the actionlib interface provided by soundplay_node, by ensuring SoundClient receives a response before returning.
-  Turn this on by: SoundClient(blocking=true).
-* Use new-style python classes (inherits from object).
-* removed trailing whitespace.
-* Set the volume in each of the sound_play actionlib tests.
-  This makes the script actually play the sounds it requests.
-* Specify queue size explicitly.
-  Removed warning message printed each time soundplay_node was started.
-* remove trailing whitespace only.
-* Change wiki urls
-* Fix test target name collision. Fixes #49
-* sound_play: cpp header conforms to the style guide
-* sound_play: update scripts to allow volume to be set
-* sound_play: updated tests to include volume changes
-* sound_play: add ability to specify volume at which to play sounds
-  Also changed error to warning as per todo
-* sound_play: fix indentation and comment inconsistencies
-* sound_play: remove some raw prints cluttering output
-* sound_play: added queue_size to SoundClient init
-  Should prevent warning being displayed whenever the client is created.
-  Fixes issue #43
-* add simple-actionlib functionality to sound_play
-* sound_play: Added functions to play files relative to a package path
-* Update maintainer email
-* Contributors: Alexis Ballier, Austin, Daniel Stonier, David V. Lu, Felix Duvallet, Matthias Nieuwenhuisen, Michal Staniaszek, Neowizard, aginika, trainman419
+* Contributors: Daniel Stonier
 
 0.2.11 (2016-02-16)
 -------------------
-* Add changelogs
 * Fix bug in say.py. Fixes `#72 <https://github.com/ros-drivers/audio_common/issues/72>`_
 * Contributors: trainman419
 
 0.2.10 (2016-01-21)
 -------------------
-* Add changelogs
 * Issue: The error checks for missing publisher/action client in sendMsg were inverted.
   The non-blocking brach tested the action client while the blocking branch
   tested the publisher.
   Fix: Inverted the blocking boolean for both branchs.
 * sound_play: Fix build with -DCATKIN_ENABLE_TESTING=OFF.
   https://bugs.gentoo.org/show_bug.cgi?id=567466
-* Contributors: Alexis Ballier, Neowizard, trainman419
+* Contributors: Alexis Ballier, Neowizard
 
 0.2.9 (2015-12-02)
 ------------------
-* Add changelogs
 * [soundplay_node] fix resources not being released on dict cleanup
   This was resulting in the number of sink inputs reaching the maximum threshold,
   (32 on ubuntu 14.04 with pulseaudio 4.0) after which no more sounds could be
@@ -87,7 +43,7 @@ Changelog for package sound_play
 * Introduce unit test to ensure soundclient is started correctly.
 * Example of using the explicit blocking parameter to override the class setting.
 * SoundClient can also explicitly specify whether or not to block while playing the sound.
-  Each play/repeat/say/... method can take an option blocking=True|False argument (using **kwargs), which over-rides the class-wide setting.
+  Each play/repeat/say/... method can take an option blocking=True|False argument (using \*\*kwargs), which over-rides the class-wide setting.
   Conflicts:
   sound_play/src/sound_play/libsoundplay.py
 * do both in same script.

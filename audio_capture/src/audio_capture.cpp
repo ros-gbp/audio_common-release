@@ -17,6 +17,7 @@ namespace audio_transport
         _bitrate = 192;
 
         std::string dst_type;
+        std::string device;
 
         // Need to encoding or publish raw wave data
         ros::param::param<std::string>("~format", _format, "mp3");
@@ -34,8 +35,7 @@ namespace audio_transport
 
         // The source of the audio
         //ros::param::param<std::string>("~src", source_type, "alsasrc");
-        std::string device;
-        ros::param::param<std::string>("~device", device, "");
+        ros::param::param<std::string>("~device", device, std::string());
 
         _pub = _nh.advertise<audio_common_msgs::AudioData>("audio", 10, true);
 
@@ -53,7 +53,7 @@ namespace audio_transport
           _sink = gst_element_factory_make("appsink", "sink");
           g_object_set(G_OBJECT(_sink), "emit-signals", true, NULL);
           g_object_set(G_OBJECT(_sink), "max-buffers", 100, NULL);
-          g_signal_connect( G_OBJECT(_sink), "new-sample",
+          g_signal_connect( G_OBJECT(_sink), "new-buffer",
                             G_CALLBACK(onNewBuffer), this);
         }
         else
@@ -64,40 +64,22 @@ namespace audio_transport
         }
 
         _source = gst_element_factory_make("alsasrc", "source");
-        // if device isn't specified, it will use the default which is
-        // the alsa default source.
-        // A valid device will be of the foram hw:0,0 with other numbers
-        // than 0 and 0 as are available.
-        if (device != "")
+        _convert = gst_element_factory_make("audioconvert", "convert");
+
+        if (!device.empty())
         {
-          // ghcar *gst_device = device.c_str();
           g_object_set(G_OBJECT(_source), "device", device.c_str(), NULL);
         }
-
-        _filter = gst_element_factory_make("capsfilter", "filter");
-        {
-          GstCaps *caps;
-          caps = gst_caps_new_simple("audio/x-raw",
-                        //      "channels", G_TYPE_INT, _channels,
-                        //      "depth",    G_TYPE_INT, _depth,
-                              "rate",     G_TYPE_INT, _sample_rate,
-                        //       "signed",   G_TYPE_BOOLEAN, TRUE,
-                              NULL);
-          g_object_set( G_OBJECT(_filter), "caps", caps, NULL);
-          gst_caps_unref(caps);
-        }
-
-        _convert = gst_element_factory_make("audioconvert", "convert");
 
         gboolean link_ok;
 
         if (_format == "mp3"){
-          _encode = gst_element_factory_make("lamemp3enc", "encoder");
-          g_object_set( G_OBJECT(_encode), "quality", 2.0, NULL);
+          _encode = gst_element_factory_make("lame", "encoder");
+          g_object_set( G_OBJECT(_encode), "preset", 1001, NULL);
           g_object_set( G_OBJECT(_encode), "bitrate", _bitrate, NULL);
 
-          gst_bin_add_many( GST_BIN(_pipeline), _source, _filter, _convert, _encode, _sink, NULL);
-          link_ok = gst_element_link_many(_source, _filter, _convert, _encode, _sink, NULL);
+          gst_bin_add_many( GST_BIN(_pipeline), _source, _convert, _encode, _sink, NULL);
+          link_ok = gst_element_link_many(_source, _convert, _encode, _sink, NULL);
         } else if (_format == "wave") {
           GstCaps *caps;
           caps = gst_caps_new_simple("audio/x-raw-int",
@@ -159,18 +141,13 @@ namespace audio_transport
       static GstFlowReturn onNewBuffer (GstAppSink *appsink, gpointer userData)
       {
         RosGstCapture *server = reinterpret_cast<RosGstCapture*>(userData);
-        GstMapInfo map;
 
-        GstSample *sample;
-        g_signal_emit_by_name(appsink, "pull-sample", &sample);
-
-        GstBuffer *buffer = gst_sample_get_buffer(sample);
+        GstBuffer *buffer;
+        g_signal_emit_by_name(appsink, "pull-buffer", &buffer);
 
         audio_common_msgs::AudioData msg;
-        gst_buffer_map(buffer, &map, GST_MAP_READ);
-        msg.data.resize( map.size );
-
-        memcpy( &msg.data[0], map.data, map.size );
+        msg.data.resize( buffer->size );
+        memcpy( &msg.data[0], buffer->data, buffer->size);
 
         server->publish(msg);
 
@@ -198,7 +175,7 @@ namespace audio_transport
 
       boost::thread _gst_thread;
 
-      GstElement *_pipeline, *_source, *_filter, *_sink, *_convert, *_encode;
+      GstElement *_pipeline, *_source, *_sink, *_convert, *_encode;
       GstBus *_bus;
       int _bitrate, _channels, _depth, _sample_rate;
       GMainLoop *_loop;

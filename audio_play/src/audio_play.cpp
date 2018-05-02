@@ -1,4 +1,5 @@
 #include <gst/gst.h>
+#include <gst/gst.h>
 #include <gst/app/gstappsrc.h>
 #include <ros/ros.h>
 #include <boost/thread.hpp>
@@ -15,9 +16,11 @@ namespace audio_transport
         GstPad *audiopad;
 
         std::string dst_type;
+        std::string device;
 
         // The destination of the audio
         ros::param::param<std::string>("~dst", dst_type, "alsasink");
+        ros::param::param<std::string>("~device", device, std::string());
 
         _sub = _nh.subscribe("audio", 10, &RosGstPlay::onAudio, this);
 
@@ -34,7 +37,7 @@ namespace audio_transport
         if (dst_type == "alsasink")
         {
           _decoder = gst_element_factory_make("decodebin", "decoder");
-          g_signal_connect(_decoder, "pad-added", G_CALLBACK(cb_newpad),this);
+          g_signal_connect(_decoder, "new-decoded-pad", G_CALLBACK(cb_newpad),this);
           gst_bin_add( GST_BIN(_pipeline), _decoder);
           gst_element_link(_source, _decoder);
 
@@ -42,13 +45,15 @@ namespace audio_transport
           _convert = gst_element_factory_make("audioconvert", "convert");
           audiopad = gst_element_get_static_pad(_convert, "sink");
           _sink = gst_element_factory_make("autoaudiosink", "sink");
+          if (!device.empty()) {
+            g_object_set(G_OBJECT(_sink), "device", device.c_str(), NULL);
+          }
           gst_bin_add_many( GST_BIN(_audio), _convert, _sink, NULL);
           gst_element_link(_convert, _sink);
           gst_element_add_pad(_audio, gst_ghost_pad_new("sink", audiopad));
           gst_object_unref(audiopad);
 
           gst_bin_add(GST_BIN(_pipeline), _audio);
-          
         }
         else
         {
@@ -77,14 +82,15 @@ namespace audio_transport
         }
 
         GstBuffer *buffer = gst_buffer_new_and_alloc(msg->data.size());
-        gst_buffer_fill(buffer, 0, &msg->data[0], msg->data.size());
+        memcpy(buffer->data, &msg->data[0], msg->data.size());
+
         GstFlowReturn ret;
 
         g_signal_emit_by_name(_source, "push-buffer", buffer, &ret);
       }
 
      static void cb_newpad (GstElement *decodebin, GstPad *pad, 
-                             gpointer data)
+                             gboolean last, gpointer data)
       {
         RosGstPlay *client = reinterpret_cast<RosGstPlay*>(data);
 
@@ -101,7 +107,7 @@ namespace audio_transport
         }
 
         /* check media type */
-        caps = gst_pad_query_caps (pad, NULL);
+        caps = gst_pad_get_caps (pad);
         str = gst_caps_get_structure (caps, 0);
         if (!g_strrstr (gst_structure_get_name (str), "audio")) {
           gst_caps_unref (caps);
