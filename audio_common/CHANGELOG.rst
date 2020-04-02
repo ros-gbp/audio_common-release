@@ -2,6 +2,11 @@
 Changelog for package audio_common
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.3.4 (2020-04-02)
+------------------
+* Merge branch 'master' of github.com:ros-drivers/audio_common
+* Contributors: Gerard Canal
+
 0.3.3 (2018-05-22)
 ------------------
 
