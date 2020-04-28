@@ -2,6 +2,9 @@
 Changelog for package audio_play
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.3.5 (2020-04-28)
+------------------
+
 0.3.4 (2020-04-02)
 ------------------
 * audio_play fix for reproducing livestream sound (`#122 <https://github.com/ros-drivers/audio_common/issues/122>`_)
