@@ -2,6 +2,9 @@
 Changelog for package audio_common_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.3.5 (2020-04-28)
+------------------
+
 0.3.4 (2020-04-02)
 ------------------
 * Merge branch 'master' of github.com:ros-drivers/audio_common
