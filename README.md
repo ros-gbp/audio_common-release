@@ -1,67 +1,27 @@
-sound_play
-=========
+# ROS audio\_common Package
 
-## Dependencies
+This repository contains the ROS audio\_common package.
 
-- python-pygame
-- festival
-- festvox-don
-- alsa-base
-- alsa-tools
+For user documentation, please refer to the [ROS Wiki page for audio\_common](http://wiki.ros.org/audio_common)
 
-## Checking that the speaker/sound card is recognized by the kernel
+# Support
 
-`cat /proc/asound/cards`
+Please ask support questions on [ROS Answers](http://answers.ros.org/questions/).
 
-Your card should be in the list. Make note of the number in front of the
-card, it will be used to tell alsa where to play sound from.
+# Building from source
 
-If your sound device does not show up, your kernel may not support it, or
-the module may not be loaded. For usb speakers, you may want to try:
+On ROS Indigo or Jade, the `indigo-devel` branch is recommended.
 
-`modprobe snd-usb-audio`
+On ROS Kinetic, the `master` branch is recommended.
 
-(not sure if this list is exhaustive)
+# Development, Branch and Release Policy
 
-## Telling alsa which sound card/speaker to use
+This package is not under active development, but is accepting pull requests for bug fixes and new features. (Development may be done for serious bug fixes; pending maintainer time).
 
-Run (replace 75 with the number of the sound device to use):
+The `sound_play`, `groovy-devel` and `hydro-devel` branches are from previous ROS releases and are frozen; no new pull requests will be accepted on these branches.
 
-`asoundconf set-default-card 75`
+The `indigo-devel` branch is the stable branch; only bug fixes are accepted on this branch. Periodic releases are done from `indigo-devel` into ROS Indigo and ROS Jade, with version numbers in the 0.2.x range.
 
-This will create .asoundrc.asoundconf in your home directory.
-To make alsa use these settings, add the following line to `~/.asoundrc`
+The `master` branch is currently considered the development branch, and is released into ROS Kinetic with version numbers in the 0.3.x range. `master` is accepting new, non-breaking features and bug fixes.
 
-`include ".asoundrc.asoundconf"`
-
-To set this default to all users, copy this to the system-wide alsa
-configuration file:
-
-`mv ~/.asoundrc.asoundconf /etc/asound.conf`
-
-## Getting started
-
-Start the sound play node, and have a look at the scripts in the scripts
-directory that exercise the node's functionality. 
-
-## Specify Device via ROS Param
-
-Besides setting default device as system wide settings, you can also specify audio device via `rosparam`:
-
-``` xml
-<launch>
-  <node name="soundplay_node" pkg="sound_play" type="soundplay_node.py">
-    <param name="device" value="hw:1,0" />
-  </node>
-</launch>
-```
-
-or simply run: `rosrun sound_play soundplay_node.py _device:="hw:1,0"`
-
-In the launch file above, `~device` parameter is set to `hw:1,0`, which tells `soundplay_node` to use audio device No. `0` connected to audio card No.`1`.
-To find card/device number which you want to use, execute:
-
-``` bash
-sudo aplay -l
-```
-
+Large, breaking changes such as changes to dependencies or the package API will be considered, but they will probably be staged into a development branch for release into the next major release of ROS (ROS L)
