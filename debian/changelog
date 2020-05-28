@@ -1,0 +1,126 @@
+ros-melodic-audio-common-msgs (0.3.6-1bionic) bionic; urgency=high
+
+  * Merge pull request #141 <https://github.com/ros-drivers/audio_common/issues/141> from knorth55/add-maintainer
+    add maintainer
+  * add maintainer
+  * Contributors: Shingo Kitagawa
+
+ -- Austin Hendrix <namniart@gmail.com>  Thu, 28 May 2020 15:00:00 -0000
+
+ros-melodic-audio-common-msgs (0.3.5-1bionic) bionic; urgency=high
+
+
+
+ -- Austin Hendrix <namniart@gmail.com>  Mon, 27 Apr 2020 15:00:00 -0000
+
+ros-melodic-audio-common-msgs (0.3.4-1bionic) bionic; urgency=high
+
+  * Merge branch 'master' of github.com:ros-drivers/audio_common
+  * Contributors: Gerard Canal
+
+ -- Austin Hendrix <namniart@gmail.com>  Wed, 01 Apr 2020 15:00:00 -0000
+
+ros-melodic-audio-common-msgs (0.3.3-1bionic) bionic; urgency=high
+
+
+
+ -- Austin Hendrix <namniart@gmail.com>  Mon, 21 May 2018 15:00:00 -0000
+
+ros-melodic-audio-common-msgs (0.3.2-1bionic) bionic; urgency=high
+
+
+
+ -- Austin Hendrix <namniart@gmail.com>  Tue, 01 May 2018 15:00:00 -0000
+
+ros-melodic-audio-common-msgs (0.3.1-1bionic) bionic; urgency=high
+
+  * Add changelogs
+  * Update maintainer email
+  * Contributors: trainman419
+
+ -- Austin Hendrix <namniart@gmail.com>  Sat, 27 Aug 2016 15:00:00 -0000
+
+ros-melodic-audio-common-msgs (0.2.11-1bionic) bionic; urgency=high
+
+  * Add changelogs
+  * Contributors: trainman419
+
+ -- Austin Hendrix <namniart@gmail.com>  Mon, 15 Feb 2016 15:00:00 -0000
+
+ros-melodic-audio-common-msgs (0.2.10-1bionic) bionic; urgency=high
+
+  * Add changelogs
+  * Contributors: trainman419
+
+ -- Austin Hendrix <namniart@gmail.com>  Wed, 20 Jan 2016 15:00:00 -0000
+
+ros-melodic-audio-common-msgs (0.2.9-1bionic) bionic; urgency=high
+
+  * Add changelogs
+  * Contributors: trainman419
+
+ -- Austin Hendrix <namniart@gmail.com>  Tue, 01 Dec 2015 15:00:00 -0000
+
+ros-melodic-audio-common-msgs (0.2.8-1bionic) bionic; urgency=high
+
+  * Update maintainer email
+  * Contributors: trainman419
+
+ -- Austin Hendrix <namniart@gmail.com>  Thu, 01 Oct 2015 15:00:00 -0000
+
+ros-melodic-audio-common-msgs (0.2.7-1bionic) bionic; urgency=high
+
+
+
+ -- Austin Hendrix <namniart@gmail.com>  Thu, 24 Jul 2014 15:00:00 -0000
+
+ros-melodic-audio-common-msgs (0.2.6-1bionic) bionic; urgency=high
+
+
+
+ -- Austin Hendrix <namniart@gmail.com>  Tue, 25 Feb 2014 15:00:00 -0000
+
+ros-melodic-audio-common-msgs (0.2.5-1bionic) bionic; urgency=high
+
+  * "0.2.5"
+  * Contributors: trainman419
+
+ -- Austin Hendrix <namniart@gmail.com>  Wed, 22 Jan 2014 15:00:00 -0000
+
+ros-melodic-audio-common-msgs (0.2.4-1bionic) bionic; urgency=high
+
+
+
+ -- Austin Hendrix <namniart@gmail.com>  Mon, 09 Sep 2013 15:00:00 -0000
+
+ros-melodic-audio-common-msgs (0.2.3-1bionic) bionic; urgency=high
+
+
+
+ -- Austin Hendrix <namniart@gmail.com>  Sun, 14 Jul 2013 15:00:00 -0000
+
+ros-melodic-audio-common-msgs (0.2.2-1bionic) bionic; urgency=high
+
+
+
+ -- Austin Hendrix <namniart@gmail.com>  Tue, 09 Apr 2013 15:00:00 -0000
+
+ros-melodic-audio-common-msgs (0.2.1-1bionic) bionic; urgency=high
+
+
+
+ -- Austin Hendrix <namniart@gmail.com>  Mon, 08 Apr 2013 04:59:00 -0000
+
+ros-melodic-audio-common-msgs (0.2.0-1bionic) bionic; urgency=high
+
+  * Catkinize audio_common_msgs.
+  * Versions and more URLs.
+  * Convert manifests to package.xml
+  * Ditch old makefiles.
+  * Fixed audio_msgs names to audio_common_msgs
+  * Renamed audio_msgs to audio_common_msgs
+  * Contributors: Austin Hendrix, Nate Koenig
+
+ -- Austin Hendrix <namniart@gmail.com>  Mon, 08 Apr 2013 04:49:00 -0000
+
+
