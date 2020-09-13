@@ -1,67 +1,37 @@
-sound_play
-=========
+# ROS audio\_common Package
+[![](https://travis-ci.com/ros-drivers/audio_common.svg?branch=master)](https://travis-ci.com/github/ros-drivers/audio_common)
 
-## Dependencies
+This repository contains the ROS audio\_common package.
 
-- python-pygame
-- festival
-- festvox-don
-- alsa-base
-- alsa-tools
+For user documentation, please refer to the [ROS Wiki page for audio\_common](http://wiki.ros.org/audio_common)
 
-## Checking that the speaker/sound card is recognized by the kernel
+# Deb Build Status
 
-`cat /proc/asound/cards`
+| Package              | Kinetic (Xenial)                                                                                                                                                                                     | Melodic (Bionic)                                                                                                                                                                                     | Melodic (Stretch)                                                                                                                                                                                      | Noetic (Focal)                                                                                                                                                                                     | Noetic (Buster)                                                                                                                                                                                      |
+|:---------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| audio_common (arm64) | [![Build Status](http://build.ros.org/job/Kbin_uxv8_uXv8__audio_common__ubuntu_xenial_arm64__binary/badge/icon)](http://build.ros.org/job/Kbin_uxv8_uXv8__audio_common__ubuntu_xenial_arm64__binary) | [![Build Status](http://build.ros.org/job/Mbin_ubv8_uBv8__audio_common__ubuntu_bionic_arm64__binary/badge/icon)](http://build.ros.org/job/Mbin_ubv8_uBv8__audio_common__ubuntu_bionic_arm64__binary) | [![Build Status](http://build.ros.org/job/Mbin_dsv8_dSv8__audio_common__debian_stretch_arm64__binary/badge/icon)](http://build.ros.org/job/Mbin_dsv8_dSv8__audio_common__debian_stretch_arm64__binary) | [![Build Status](http://build.ros.org/job/Nbin_ufv8_uFv8__audio_common__ubuntu_focal_arm64__binary/badge/icon)](http://build.ros.org/job/Nbin_ufv8_uFv8__audio_common__ubuntu_focal_arm64__binary) | [![Build Status](http://build.ros.org/job/Nbin_dbv8_dBv8__audio_common__debian_buster_arm64__binary/badge/icon)](http://build.ros.org/job/Nbin_dbv8_dBv8__audio_common__debian_buster_arm64__binary) |
+| audio_common (armhf) | [![Build Status](http://build.ros.org/job/Kbin_uxhf_uXhf__audio_common__ubuntu_xenial_armhf__binary/badge/icon)](http://build.ros.org/job/Kbin_uxhf_uXhf__audio_common__ubuntu_xenial_armhf__binary) | [![Build Status](http://build.ros.org/job/Mbin_ubhf_uBhf__audio_common__ubuntu_bionic_armhf__binary/badge/icon)](http://build.ros.org/job/Mbin_ubhf_uBhf__audio_common__ubuntu_bionic_armhf__binary) | ---                                                                                                                                                                                                    | [![Build Status](http://build.ros.org/job/Nbin_ufhf_uFhf__audio_common__ubuntu_focal_armhf__binary/badge/icon)](http://build.ros.org/job/Nbin_ufhf_uFhf__audio_common__ubuntu_focal_armhf__binary) | ---                                                                                                                                                                                                  |
+| audio_common (i386)  | [![Build Status](http://build.ros.org/job/Kbin_uX32__audio_common__ubuntu_xenial_i386__binary/badge/icon)](http://build.ros.org/job/Kbin_uX32__audio_common__ubuntu_xenial_i386__binary)             | ---                                                                                                                                                                                                  | ---                                                                                                                                                                                                    | ---                                                                                                                                                                                                | ---                                                                                                                                                                                                  |
+| audio_common (amd64) | [![Build Status](http://build.ros.org/job/Kbin_uX64__audio_common__ubuntu_xenial_amd64__binary/badge/icon)](http://build.ros.org/job/Kbin_uX64__audio_common__ubuntu_xenial_amd64__binary)           | [![Build Status](http://build.ros.org/job/Mbin_uB64__audio_common__ubuntu_bionic_amd64__binary/badge/icon)](http://build.ros.org/job/Mbin_uB64__audio_common__ubuntu_bionic_amd64__binary)           | [![Build Status](http://build.ros.org/job/Mbin_ds_dS64__audio_common__debian_stretch_amd64__binary/badge/icon)](http://build.ros.org/job/Mbin_ds_dS64__audio_common__debian_stretch_amd64__binary)     | [![Build Status](http://build.ros.org/job/Nbin_uF64__audio_common__ubuntu_focal_amd64__binary/badge/icon)](http://build.ros.org/job/Nbin_uF64__audio_common__ubuntu_focal_amd64__binary)           | [![Build Status](http://build.ros.org/job/Nbin_db_dB64__audio_common__debian_buster_amd64__binary/badge/icon)](http://build.ros.org/job/Nbin_db_dB64__audio_common__debian_buster_amd64__binary)     |
 
-Your card should be in the list. Make note of the number in front of the
-card, it will be used to tell alsa where to play sound from.
+# Support
 
-If your sound device does not show up, your kernel may not support it, or
-the module may not be loaded. For usb speakers, you may want to try:
+Please ask support questions on [ROS Answers](http://answers.ros.org/questions/).
 
-`modprobe snd-usb-audio`
+# Building from source
 
-(not sure if this list is exhaustive)
+On ROS Indigo or Jade, the `indigo-devel` branch is recommended.
 
-## Telling alsa which sound card/speaker to use
+On ROS Kinetic, Melodic and Noetic, the `master` branch is recommended.
 
-Run (replace 75 with the number of the sound device to use):
+# Development, Branch and Release Policy
 
-`asoundconf set-default-card 75`
+This package is not under active development, but is accepting pull requests for bug fixes and new features. (Development may be done for serious bug fixes; pending maintainer time).
 
-This will create .asoundrc.asoundconf in your home directory.
-To make alsa use these settings, add the following line to `~/.asoundrc`
+The `sound_play`, `groovy-devel` and `hydro-devel` branches are from previous ROS releases and are frozen; no new pull requests will be accepted on these branches.
 
-`include ".asoundrc.asoundconf"`
+The `indigo-devel` branch is the stable branch; only bug fixes are accepted on this branch. Periodic releases are done from `indigo-devel` into ROS Indigo and ROS Jade, with version numbers in the 0.2.x range.
 
-To set this default to all users, copy this to the system-wide alsa
-configuration file:
+The `master` branch is currently considered the development branch, and is released into ROS Kinetic, Melodic and Noetic with version numbers in the 0.3.x range. `master` is accepting new, non-breaking features and bug fixes.
 
-`mv ~/.asoundrc.asoundconf /etc/asound.conf`
-
-## Getting started
-
-Start the sound play node, and have a look at the scripts in the scripts
-directory that exercise the node's functionality. 
-
-## Specify Device via ROS Param
-
-Besides setting default device as system wide settings, you can also specify audio device via `rosparam`:
-
-``` xml
-<launch>
-  <node name="soundplay_node" pkg="sound_play" type="soundplay_node.py">
-    <param name="device" value="hw:1,0" />
-  </node>
-</launch>
-```
-
-or simply run: `rosrun sound_play soundplay_node.py _device:="hw:1,0"`
-
-In the launch file above, `~device` parameter is set to `hw:1,0`, which tells `soundplay_node` to use audio device No. `0` connected to audio card No.`1`.
-To find card/device number which you want to use, execute:
-
-``` bash
-sudo aplay -l
-```
-
+Large, breaking changes such as changes to dependencies or the package API will be considered, but they will probably be staged into a development branch for release into the next major release of ROS (ROS L)
