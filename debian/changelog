@@ -1,0 +1,215 @@
+ros-melodic-audio-capture (0.3.8-1bionic) bionic; urgency=high
+
+
+
+ -- Austin Hendrix <namniart@gmail.com>  Sat, 12 Sep 2020 15:00:00 -0000
+
+ros-melodic-audio-capture (0.3.7-1bionic) bionic; urgency=high
+
+  * Merge pull request #150 <https://github.com/ros-drivers/audio_common/issues/150> from sktometometo/fix_mp3_options
+    Fix property of lamemp3enc element in audio_capture so that the bitrate parameter work properly.
+  * fix property of lamemp3enc element so that it will use the specified bitrate
+  * Merge pull request #146 <https://github.com/ros-drivers/audio_common/issues/146> from knorth55/mp3-support
+  * use space instead of tab
+  * use same caps
+  * support channls for mp3
+  * Merge pull request #145 <https://github.com/ros-drivers/audio_common/issues/145> from knorth55/mp3-channel-rate
+    [audio_capture] add sample_format in audio_capture
+  * Merge pull request #147 <https://github.com/ros-drivers/audio_common/issues/147> from knorth55/fix-filesink
+    [audio_capture] fix filesink for wave format
+  * add sample_format arg in capture_to_file.launch
+  * fix filesink for wave format
+  * add sample_format in audio_capture
+  * Contributors: Koki Shinjo, Shingo Kitagawa
+
+ -- Austin Hendrix <namniart@gmail.com>  Fri, 07 Aug 2020 15:00:00 -0000
+
+ros-melodic-audio-capture (0.3.6-1bionic) bionic; urgency=high
+
+  * Merge pull request #141 <https://github.com/ros-drivers/audio_common/issues/141> from knorth55/add-maintainer
+    add maintainer
+  * add maintainer
+  * Contributors: Shingo Kitagawa
+
+ -- Austin Hendrix <namniart@gmail.com>  Thu, 28 May 2020 15:00:00 -0000
+
+ros-melodic-audio-capture (0.3.5-1bionic) bionic; urgency=high
+
+
+
+ -- Austin Hendrix <namniart@gmail.com>  Mon, 27 Apr 2020 15:00:00 -0000
+
+ros-melodic-audio-capture (0.3.4-1bionic) bionic; urgency=high
+
+  * Merge branch 'master' of github.com:ros-drivers/audio_common
+  * Contributors: Gerard Canal
+
+ -- Austin Hendrix <namniart@gmail.com>  Wed, 01 Apr 2020 15:00:00 -0000
+
+ros-melodic-audio-capture (0.3.3-1bionic) bionic; urgency=high
+
+
+
+ -- Austin Hendrix <namniart@gmail.com>  Mon, 21 May 2018 15:00:00 -0000
+
+ros-melodic-audio-capture (0.3.2-1bionic) bionic; urgency=high
+
+  * [sound_play] add option to select audio device to play / record (#87 <https://github.com/ros-drivers/audio_common/issues/87>)
+    * [sound_play] add option to select audio device to play
+    * [sound_play] reformat README to markdown; add usage to set device via rosparam
+    * audio_capture: add option for selecting device to use
+    * audio_play: add option to select device for playing audio
+    * add device argument to launch files
+    Conflicts:
+    audio_capture/launch/capture.launch
+    audio_capture/launch/capture_to_file.launch
+    audio_capture/src/audio_capture.cpp
+    audio_play/launch/play.launch
+    sound_play/scripts/soundplay_node.py
+  * Merge pull request #102 <https://github.com/ros-drivers/audio_common/issues/102> from EndPointCorp/fix_capture_leak
+    Fix audio_capture leak
+  * Fix audio_capture sample/buffer leak
+  * Merge pull request #90 <https://github.com/ros-drivers/audio_common/issues/90> from prarobo/master
+    Error checking code and improvements to launch files
+  * Bug fix
+  * fix(audio_capture): capturing wave using gst1.0
+    0.10-style raw audio caps were being created, according to GStreamer warning. Should be audio/x-raw,format=(string).. now.
+  * Merge pull request #1 <https://github.com/ros-drivers/audio_common/issues/1> from prarobo/fixes
+    Error checking code and improvements to launch files
+  * Removed default device
+  * Added error checking code
+  * Added parameters to launch files
+  * Contributors: Austin, Matt Vollrath, Prasanna Kannappan, Rokus, Yuki Furuta, prarobo
+
+ -- Austin Hendrix <namniart@gmail.com>  Tue, 01 May 2018 15:00:00 -0000
+
+ros-melodic-audio-capture (0.3.1-1bionic) bionic; urgency=high
+
+  * Update to new gstreamer rosdeps
+  * #70 can launch these in different namespaces with different microphones, and both are operating.
+  * #70 can switch between different microphones, but the first microphone doesn't like the hw:1, it only works with device:="" - so must be doing something wrong still.
+  * Add changelogs
+  * [audio_capture] add error handler
+  * [audio_capture] add option to publish captured audio data as wav format
+    Conflicts:
+    audio_capture/src/audio_capture.cpp
+  * Fixed memory leak (see #18).
+  * Removed trailing whitespace.
+  * Fixed problem that CMake uses gstreamer-0.1 instead of gstreamer-1.0
+  * Added gstreamer 1.0 dependecies
+  * Ported to gstreamer 1.0
+    package.xml dependencies still missing
+  * Update maintainer email
+  * Contributors: Benny, Felix Duvallet, Furushchev, Lucas Walter, trainman419
+
+ -- Austin Hendrix <namniart@gmail.com>  Sat, 27 Aug 2016 15:00:00 -0000
+
+ros-melodic-audio-capture (0.2.11-1bionic) bionic; urgency=high
+
+  * Add changelogs
+  * Contributors: trainman419
+
+ -- Austin Hendrix <namniart@gmail.com>  Mon, 15 Feb 2016 15:00:00 -0000
+
+ros-melodic-audio-capture (0.2.10-1bionic) bionic; urgency=high
+
+  * Add changelogs
+  * Contributors: trainman419
+
+ -- Austin Hendrix <namniart@gmail.com>  Wed, 20 Jan 2016 15:00:00 -0000
+
+ros-melodic-audio-capture (0.2.9-1bionic) bionic; urgency=high
+
+  * Add changelogs
+  * [audio_capture] add error handler
+  * [audio_capture] add option to publish captured audio data as wav format
+  * Fixed memory leak (see #18 <https://github.com/ros-drivers/audio_common/issues/18>).
+  * Removed trailing whitespace.
+  * Contributors: Felix Duvallet, Furushchev, trainman419
+
+ -- Austin Hendrix <namniart@gmail.com>  Tue, 01 Dec 2015 15:00:00 -0000
+
+ros-melodic-audio-capture (0.2.8-1bionic) bionic; urgency=high
+
+  * Update maintainer email
+  * Contributors: trainman419
+
+ -- Austin Hendrix <namniart@gmail.com>  Thu, 01 Oct 2015 15:00:00 -0000
+
+ros-melodic-audio-capture (0.2.7-1bionic) bionic; urgency=high
+
+  * audio_capture.cpp has to wait for generated AudioData headers
+  * Contributors: v4hn
+
+ -- Austin Hendrix <namniart@gmail.com>  Thu, 24 Jul 2014 15:00:00 -0000
+
+ros-melodic-audio-capture (0.2.6-1bionic) bionic; urgency=high
+
+  * audio_capture and play _require_ gstreamer, it's not optional
+  * Contributors: v4hn
+
+ -- Austin Hendrix <namniart@gmail.com>  Tue, 25 Feb 2014 15:00:00 -0000
+
+ros-melodic-audio-capture (0.2.5-1bionic) bionic; urgency=high
+
+  * "0.2.5"
+  * Contributors: trainman419
+
+ -- Austin Hendrix <namniart@gmail.com>  Wed, 22 Jan 2014 15:00:00 -0000
+
+ros-melodic-audio-capture (0.2.4-1bionic) bionic; urgency=high
+
+  * Update CMakeLists.txt
+  * audio_capture: install launchfiles
+  * Contributors: David Gossow
+
+ -- Austin Hendrix <namniart@gmail.com>  Mon, 09 Sep 2013 15:00:00 -0000
+
+ros-melodic-audio-capture (0.2.3-1bionic) bionic; urgency=high
+
+  * Fix install rule for audio_capture.
+  * Contributors: Austin Hendrix
+
+ -- Austin Hendrix <namniart@gmail.com>  Sun, 14 Jul 2013 15:00:00 -0000
+
+ros-melodic-audio-capture (0.2.2-1bionic) bionic; urgency=high
+
+
+
+ -- Austin Hendrix <namniart@gmail.com>  Tue, 09 Apr 2013 15:00:00 -0000
+
+ros-melodic-audio-capture (0.2.1-1bionic) bionic; urgency=high
+
+
+
+ -- Austin Hendrix <namniart@gmail.com>  Mon, 08 Apr 2013 04:59:00 -0000
+
+ros-melodic-audio-capture (0.2.0-1bionic) bionic; urgency=high
+
+  * Finish catkinizing audio_common.
+  * Catkinize audio_play.
+  * Catkinize audio_capture.
+  * Fix typo in package.xml
+  * Versions and more URLs.
+  * Convert manifests to package.xml
+  * Convert audio_capture manifest to package.xml
+  * Ditch old makefiles.
+  * Updates manifest
+  * Updated manifests for rodep2
+  * oneiric build fixes, bump version to 0.1.6
+  * Removed redundant thread::thread
+  * Added a rosdep.yaml file
+  * Fixed to use audio_common_msgs
+  * Added ability to use different festival voices
+  * Updated documentation
+  * Added ability to capture to file
+  * Fixed ignore files
+  * Added hgignore files
+  * Audio_capture and audio_play working
+  * Making separate audio_capture and audio_play packages
+  * Moved audio_transport to audio_capture
+  * Contributors: Austin Hendrix, Brian Gerkey, Nate Koenig, nkoenig
+
+ -- Austin Hendrix <namniart@gmail.com>  Mon, 08 Apr 2013 04:49:00 -0000
+
+
