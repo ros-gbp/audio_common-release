@@ -1,0 +1,12 @@
+Source: ros-noetic-audio-common-msgs
+Section: misc
+Priority: optional
+Maintainer: Austin Hendrix <namniart@gmail.com>
+Build-Depends: debhelper (>= 9.0.0), ros-noetic-catkin, ros-noetic-message-generation
+Homepage: http://ros.org/wiki/audio_common_msgs
+Standards-Version: 3.9.2
+
+Package: ros-noetic-audio-common-msgs
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-noetic-message-runtime
+Description: Messages for transmitting audio via ROS
