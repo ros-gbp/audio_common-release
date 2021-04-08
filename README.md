@@ -1,3 +1,31 @@
+## audio_common (kinetic) - 0.3.11-1
+
+The packages in the `audio_common` repository were released into the `kinetic` distro by running `/usr/local/bin/bloom-release audio_common --rosdistro kinetic -y` on `Thu, 08 Apr 2021 15:21:18 -0000`
+
+These packages were released:
+- `audio_capture`
+- `audio_common`
+- `audio_common_msgs`
+- `audio_play`
+- `sound_play`
+
+Version of package(s) in repository `audio_common`:
+
+- upstream repository: https://github.com/ros-drivers/audio_common.git
+- release repository: https://github.com/ros-gbp/audio_common-release.git
+- rosdistro version: `0.3.10-1`
+- old version: `0.3.10-1`
+- new version: `0.3.11-1`
+
+Versions of tools used:
+
+- bloom version: `0.10.6`
+- catkin_pkg version: `0.4.23`
+- rosdep version: `0.20.0`
+- rosdistro version: `0.8.3`
+- vcstools version: `0.1.42`
+
+
 ## audio_common (melodic) - 0.3.11-1
 
 The packages in the `audio_common` repository were released into the `melodic` distro by running `/usr/local/bin/bloom-release audio_common --rosdistro melodic -y` on `Thu, 08 Apr 2021 15:16:28 -0000`
