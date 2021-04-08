@@ -2,6 +2,9 @@
 Changelog for package audio_common_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.3.11 (2021-04-08)
+-------------------
+
 0.3.10 (2021-01-07)
 -------------------
 * Change comment style in AudioInfo.msg
