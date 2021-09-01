@@ -52,6 +52,7 @@ try:
     import gi
     gi.require_version('Gst', '1.0')
     from gi.repository import Gst as Gst
+    from gi.repository import GObject as GObject
 except:
     str="""
 **************************************************************
@@ -61,6 +62,7 @@ Error opening pygst. Is gstreamer installed?
     rospy.logfatal(str)
     # print str
     exit(1)
+
 
 def sleep(t):
     try:
@@ -106,6 +108,9 @@ class soundtype:
 
     def on_stream_end(self, bus, message):
         if message.type == Gst.MessageType.EOS:
+          if (self.state == self.LOOPING):
+            self.sound.seek_simple(Gst.Format.TIME, Gst.SeekFlags.FLUSH, 0)
+          else:
             self.stop()
 
     def __del__(self):
@@ -182,8 +187,8 @@ class soundtype:
         position = 0
         duration = 0
         try:
-            position = self.sound.query_position(Gst.Format.TIME)[0]
-            duration = self.sound.query_duration(Gst.Format.TIME)[0]
+            position = self.sound.query_position(Gst.Format.TIME)[1]
+            duration = self.sound.query_duration(Gst.Format.TIME)[1]
         except Exception as e:
             position = 0
             duration = 0
@@ -245,8 +250,9 @@ class soundplay:
                 sound = self.filesounds[absfilename]
         elif data.sound == SoundRequest.SAY:
             # print data
-            if not data.arg in self.voicesounds.keys():
-                rospy.logdebug('command for uncached text: "%s"' % data.arg)
+            voice_key = data.arg + '---' + data.arg2
+            if not voice_key in self.voicesounds.keys():
+                rospy.logdebug('command for uncached text: "%s"' % voice_key)
                 txtfile = tempfile.NamedTemporaryFile(prefix='sound_play', suffix='.txt')
                 (wavfile,wavfilename) = tempfile.mkstemp(prefix='sound_play', suffix='.wav')
                 txtfilename=txtfile.name
@@ -271,15 +277,15 @@ class soundplay:
                     except OSError:
                         rospy.logerr('Sound synthesis failed. Is festival installed? Is a festival voice installed? Try running "rosdep satisfy sound_play|sh". Refer to http://wiki.ros.org/sound_play/Troubleshooting')
                         return
-                    self.voicesounds[data.arg] = soundtype(wavfilename, self.device, data.volume)
+                    self.voicesounds[voice_key] = soundtype(wavfilename, self.device, data.volume)
                 finally:
                     txtfile.close()
             else:
-                rospy.logdebug('command for cached text: "%s"'%data.arg)
-                if self.voicesounds[data.arg].sound.get_property('volume') != data.volume:
+                rospy.logdebug('command for cached text: "%s"' % voice_key)
+                if self.voicesounds[voice_key].sound.get_property('volume') != data.volume:
                     rospy.logdebug('volume for cached text has changed, resetting volume')
-                    self.voicesounds[data.arg].sound.set_property('volume', data.volume)
-            sound = self.voicesounds[data.arg]
+                    self.voicesounds[voice_key].sound.set_property('volume', data.volume)
+            sound = self.voicesounds[voice_key]
         else:
             rospy.logdebug('command for builtin wave: %i'%data.sound)
             if data.sound not in self.builtinsounds or (data.sound in self.builtinsounds and data.volume != self.builtinsounds[data.sound].volume):
@@ -303,8 +309,7 @@ class soundplay:
         if not self.initialized:
             return
         self.mutex.acquire()
-        # Force only one sound at a time
-        self.stopall()
+        
         try:
             if data.sound == SoundRequest.ALL and data.command == SoundRequest.PLAY_STOP:
                 self.stopall()
@@ -377,6 +382,8 @@ class soundplay:
     def execute_cb(self, data):
         data = data.sound_request
         if not self.initialized:
+            rospy.logerr('soundplay_node is not initialized yet.')
+            self._as.set_aborted()
             return
         self.mutex.acquire()
         # Force only one sound at a time
@@ -388,7 +395,7 @@ class soundplay:
                 sound = self.select_sound(data)
                 sound.command(data.command)
 
-                r = rospy.Rate(1)
+                r = rospy.Rate(self.loop_rate)
                 start_time = rospy.get_rostime()
                 success = True
                 while sound.get_playing():
@@ -412,6 +419,7 @@ class soundplay:
                     self._as.set_succeeded(self._result)
 
         except Exception as e:
+            self._as.set_aborted()
             rospy.logerr('Exception in actionlib callback: %s'%str(e))
             rospy.loginfo(traceback.format_exc())
         finally:
@@ -420,7 +428,15 @@ class soundplay:
 
     def __init__(self):
         Gst.init(None)
+
+        # Start gobject thread to receive gstreamer messages
+        GObject.threads_init()
+        self.g_loop = threading.Thread(target=GObject.MainLoop().run)
+        self.g_loop.daemon = True
+        self.g_loop.start()
+
         rospy.init_node('sound_play')
+        self.loop_rate = rospy.get_param('~loop_rate', 100)
         self.device = rospy.get_param("~device", "default")
         self.diagnostic_pub = rospy.Publisher("/diagnostics", DiagnosticArray, queue_size=1)
         rootdir = os.path.join(roslib.packages.get_pkg_dir('sound_play'),'sounds')
@@ -440,7 +456,6 @@ class soundplay:
         self.mutex = threading.Lock()
         sub = rospy.Subscriber("robotsound", SoundRequest, self.callback)
         self._as = actionlib.SimpleActionServer('sound_play', SoundRequestAction, execute_cb=self.execute_cb, auto_start = False)
-        self._as.start()
 
         self.mutex.acquire()
         self.sleep(0.5) # For ros startup race condition
@@ -452,6 +467,8 @@ class soundplay:
                 self.no_error = True
                 self.initialized = True
                 self.mutex.release()
+                if not self._as.action_server.started:
+                    self._as.start()
                 try:
                     self.idle_loop()
                     # Returns after inactive period to test device availability
