@@ -2,6 +2,11 @@
 Changelog for package audio_play
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.3.12 (2021-09-01)
+-------------------
+* Merge branch 'master' into master
+* Contributors: Shingo Kitagawa
+
 0.3.11 (2021-04-08)
 -------------------
 
