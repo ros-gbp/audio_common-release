@@ -2,6 +2,9 @@
 Changelog for package audio_play
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.3.14 (2022-08-18)
+-------------------
+
 0.3.13 (2022-04-07)
 -------------------
 * Merge pull request `#179 <https://github.com/ros-drivers/audio_common/issues/179>`_ from tkmtnt7000/PR-remap-audio-topic
