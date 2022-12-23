@@ -2,6 +2,12 @@
 Changelog for package audio_common_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.3.16 (2022-12-23)
+-------------------
+* Merge pull request `#202 <https://github.com/ros-drivers/audio_common/issues/202>`_ from knorth55/audio-stamped-msg
+* add AudioDataStamped.msg
+* Contributors: Shingo Kitagawa
+
 0.3.15 (2022-08-29)
 -------------------
 
