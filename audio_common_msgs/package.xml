@@ -1,6 +1,6 @@
 <package>
    <name>audio_common_msgs</name>
-   <version>0.3.15</version>
+   <version>0.3.16</version>
    <description>
       Messages for transmitting audio via ROS
    </description>
@@ -15,6 +15,8 @@
    <buildtool_depend>catkin</buildtool_depend>
 
    <build_depend>message_generation</build_depend>
+   <build_depend>std_msgs</build_depend>
 
    <run_depend>message_runtime</run_depend>
+   <run_depend>std_msgs</run_depend>
 </package>
