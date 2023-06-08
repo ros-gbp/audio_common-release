@@ -1,6 +1,6 @@
 <package>
    <name>audio_capture</name>
-   <version>0.3.16</version>
+   <version>0.3.17</version>
    <description>
       Transports audio from a source to a destination. Audio sources can come
       from a microphone or file. The destination can play the audio or save it
@@ -24,6 +24,7 @@
    <run_depend>roscpp</run_depend>
    <run_depend>audio_common_msgs</run_depend>
    <run_depend>gstreamer1.0</run_depend>
+   <run_depend>gstreamer1.0-alsa</run_depend>
    <run_depend>gstreamer1.0-plugins-base</run_depend>
    <run_depend>gstreamer1.0-plugins-good</run_depend>
    <run_depend>gstreamer1.0-plugins-ugly</run_depend>
