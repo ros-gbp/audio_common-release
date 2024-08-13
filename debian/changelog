@@ -1,0 +1,288 @@
+ros-noetic-audio-capture (0.3.18-1focal) focal; urgency=high
+
+
+
+ -- Austin Hendrix <namniart@gmail.com>  Tue, 13 Aug 2024 07:00:00 -0000
+
+ros-noetic-audio-capture (0.3.17-1focal) focal; urgency=high
+
+  * Merge pull request #220 <https://github.com/ros-drivers/audio_common/issues/220> from v4hn/master
+  * on real systems publish system clock time in capture node
+  * The capture node is hard-coded to alsasrc
+  * Contributors: Shingo Kitagawa, v4hn
+
+ -- Austin Hendrix <namniart@gmail.com>  Thu, 08 Jun 2023 07:00:00 -0000
+
+ros-noetic-audio-capture (0.3.16-1focal) focal; urgency=high
+
+  * Merge pull request #204 <https://github.com/ros-drivers/audio_common/issues/204> from knorth55/audio-capture-stamped
+  * add todo comment
+  * publish audio stamped in audio_capture.cpp
+  * Merge pull request #216 <https://github.com/ros-drivers/audio_common/issues/216> from knorth55/launch-update
+  * update audio_capture launch
+  * Contributors: Shingo Kitagawa
+
+ -- Austin Hendrix <namniart@gmail.com>  Fri, 23 Dec 2022 08:00:00 -0000
+
+ros-noetic-audio-capture (0.3.15-1focal) focal; urgency=high
+
+
+
+ -- Austin Hendrix <namniart@gmail.com>  Mon, 29 Aug 2022 07:00:00 -0000
+
+ros-noetic-audio-capture (0.3.14-1focal) focal; urgency=high
+
+
+
+ -- Austin Hendrix <namniart@gmail.com>  Thu, 18 Aug 2022 07:00:00 -0000
+
+ros-noetic-audio-capture (0.3.13-1focal) focal; urgency=high
+
+
+
+ -- Austin Hendrix <namniart@gmail.com>  Thu, 07 Apr 2022 07:00:00 -0000
+
+ros-noetic-audio-capture (0.3.12-1focal) focal; urgency=high
+
+  * Merge branch 'master' into master
+  * Contributors: Shingo Kitagawa
+
+ -- Austin Hendrix <namniart@gmail.com>  Wed, 01 Sep 2021 07:00:00 -0000
+
+ros-noetic-audio-capture (0.3.11-1focal) focal; urgency=high
+
+
+
+ -- Austin Hendrix <namniart@gmail.com>  Thu, 08 Apr 2021 07:00:00 -0000
+
+ros-noetic-audio-capture (0.3.10-1focal) focal; urgency=high
+
+  * add bitrate in capture launch
+  * [audio_capture] Publish audio info once before publishing /audio
+  * Contributors: Naoya Yamaguchi, Shingo Kitagawa
+
+ -- Austin Hendrix <namniart@gmail.com>  Thu, 07 Jan 2021 08:00:00 -0000
+
+ros-noetic-audio-capture (0.3.9-1focal) focal; urgency=high
+
+  * Merge pull request #160 <https://github.com/ros-drivers/audio_common/issues/160> from knorth55/add-device-play
+  * use ROS_INFO instead of printf
+  * Contributors: Shingo Kitagawa
+
+ -- Austin Hendrix <namniart@gmail.com>  Thu, 22 Oct 2020 07:00:00 -0000
+
+ros-noetic-audio-capture (0.3.8-1focal) focal; urgency=high
+
+
+
+ -- Austin Hendrix <namniart@gmail.com>  Sun, 13 Sep 2020 07:00:00 -0000
+
+ros-noetic-audio-capture (0.3.7-1focal) focal; urgency=high
+
+  * Merge pull request #150 <https://github.com/ros-drivers/audio_common/issues/150> from sktometometo/fix_mp3_options
+    Fix property of lamemp3enc element in audio_capture so that the bitrate parameter work properly.
+  * fix property of lamemp3enc element so that it will use the specified bitrate
+  * Merge pull request #146 <https://github.com/ros-drivers/audio_common/issues/146> from knorth55/mp3-support
+  * use space instead of tab
+  * use same caps
+  * support channls for mp3
+  * Merge pull request #145 <https://github.com/ros-drivers/audio_common/issues/145> from knorth55/mp3-channel-rate
+    [audio_capture] add sample_format in audio_capture
+  * Merge pull request #147 <https://github.com/ros-drivers/audio_common/issues/147> from knorth55/fix-filesink
+    [audio_capture] fix filesink for wave format
+  * add sample_format arg in capture_to_file.launch
+  * fix filesink for wave format
+  * add sample_format in audio_capture
+  * Contributors: Koki Shinjo, Shingo Kitagawa
+
+ -- Austin Hendrix <namniart@gmail.com>  Sat, 08 Aug 2020 07:00:00 -0000
+
+ros-noetic-audio-capture (0.3.6-1focal) focal; urgency=high
+
+  * Merge pull request #141 <https://github.com/ros-drivers/audio_common/issues/141> from knorth55/add-maintainer
+    add maintainer
+  * add maintainer
+  * Contributors: Shingo Kitagawa
+
+ -- Austin Hendrix <namniart@gmail.com>  Fri, 29 May 2020 07:00:00 -0000
+
+ros-noetic-audio-capture (0.3.5-1focal) focal; urgency=high
+
+
+
+ -- Austin Hendrix <namniart@gmail.com>  Tue, 28 Apr 2020 07:00:00 -0000
+
+ros-noetic-audio-capture (0.3.4-1focal) focal; urgency=high
+
+  * Merge branch 'master' of github.com:ros-drivers/audio_common
+  * Contributors: Gerard Canal
+
+ -- Austin Hendrix <namniart@gmail.com>  Thu, 02 Apr 2020 07:00:00 -0000
+
+ros-noetic-audio-capture (0.3.3-1focal) focal; urgency=high
+
+
+
+ -- Austin Hendrix <namniart@gmail.com>  Tue, 22 May 2018 07:00:00 -0000
+
+ros-noetic-audio-capture (0.3.2-1focal) focal; urgency=high
+
+  * [sound_play] add option to select audio device to play / record (#87 <https://github.com/ros-drivers/audio_common/issues/87>)
+    * [sound_play] add option to select audio device to play
+    * [sound_play] reformat README to markdown; add usage to set device via rosparam
+    * audio_capture: add option for selecting device to use
+    * audio_play: add option to select device for playing audio
+    * add device argument to launch files
+    Conflicts:
+    audio_capture/launch/capture.launch
+    audio_capture/launch/capture_to_file.launch
+    audio_capture/src/audio_capture.cpp
+    audio_play/launch/play.launch
+    sound_play/scripts/soundplay_node.py
+  * Merge pull request #102 <https://github.com/ros-drivers/audio_common/issues/102> from EndPointCorp/fix_capture_leak
+    Fix audio_capture leak
+  * Fix audio_capture sample/buffer leak
+  * Merge pull request #90 <https://github.com/ros-drivers/audio_common/issues/90> from prarobo/master
+    Error checking code and improvements to launch files
+  * Bug fix
+  * fix(audio_capture): capturing wave using gst1.0
+    0.10-style raw audio caps were being created, according to GStreamer warning. Should be audio/x-raw,format=(string).. now.
+  * Merge pull request #1 <https://github.com/ros-drivers/audio_common/issues/1> from prarobo/fixes
+    Error checking code and improvements to launch files
+  * Removed default device
+  * Added error checking code
+  * Added parameters to launch files
+  * Contributors: Austin, Matt Vollrath, Prasanna Kannappan, Rokus, Yuki Furuta, prarobo
+
+ -- Austin Hendrix <namniart@gmail.com>  Wed, 02 May 2018 07:00:00 -0000
+
+ros-noetic-audio-capture (0.3.1-1focal) focal; urgency=high
+
+  * Update to new gstreamer rosdeps
+  * #70 can launch these in different namespaces with different microphones, and both are operating.
+  * #70 can switch between different microphones, but the first microphone doesn't like the hw:1, it only works with device:="" - so must be doing something wrong still.
+  * Add changelogs
+  * [audio_capture] add error handler
+  * [audio_capture] add option to publish captured audio data as wav format
+    Conflicts:
+    audio_capture/src/audio_capture.cpp
+  * Fixed memory leak (see #18).
+  * Removed trailing whitespace.
+  * Fixed problem that CMake uses gstreamer-0.1 instead of gstreamer-1.0
+  * Added gstreamer 1.0 dependecies
+  * Ported to gstreamer 1.0
+    package.xml dependencies still missing
+  * Update maintainer email
+  * Contributors: Benny, Felix Duvallet, Furushchev, Lucas Walter, trainman419
+
+ -- Austin Hendrix <namniart@gmail.com>  Sun, 28 Aug 2016 07:00:00 -0000
+
+ros-noetic-audio-capture (0.2.11-1focal) focal; urgency=high
+
+  * Add changelogs
+  * Contributors: trainman419
+
+ -- Austin Hendrix <namniart@gmail.com>  Tue, 16 Feb 2016 08:00:00 -0000
+
+ros-noetic-audio-capture (0.2.10-1focal) focal; urgency=high
+
+  * Add changelogs
+  * Contributors: trainman419
+
+ -- Austin Hendrix <namniart@gmail.com>  Thu, 21 Jan 2016 08:00:00 -0000
+
+ros-noetic-audio-capture (0.2.9-1focal) focal; urgency=high
+
+  * Add changelogs
+  * [audio_capture] add error handler
+  * [audio_capture] add option to publish captured audio data as wav format
+  * Fixed memory leak (see #18 <https://github.com/ros-drivers/audio_common/issues/18>).
+  * Removed trailing whitespace.
+  * Contributors: Felix Duvallet, Furushchev, trainman419
+
+ -- Austin Hendrix <namniart@gmail.com>  Wed, 02 Dec 2015 08:00:00 -0000
+
+ros-noetic-audio-capture (0.2.8-1focal) focal; urgency=high
+
+  * Update maintainer email
+  * Contributors: trainman419
+
+ -- Austin Hendrix <namniart@gmail.com>  Fri, 02 Oct 2015 07:00:00 -0000
+
+ros-noetic-audio-capture (0.2.7-1focal) focal; urgency=high
+
+  * audio_capture.cpp has to wait for generated AudioData headers
+  * Contributors: v4hn
+
+ -- Austin Hendrix <namniart@gmail.com>  Fri, 25 Jul 2014 07:00:00 -0000
+
+ros-noetic-audio-capture (0.2.6-1focal) focal; urgency=high
+
+  * audio_capture and play _require_ gstreamer, it's not optional
+  * Contributors: v4hn
+
+ -- Austin Hendrix <namniart@gmail.com>  Wed, 26 Feb 2014 08:00:00 -0000
+
+ros-noetic-audio-capture (0.2.5-1focal) focal; urgency=high
+
+  * "0.2.5"
+  * Contributors: trainman419
+
+ -- Austin Hendrix <namniart@gmail.com>  Thu, 23 Jan 2014 08:00:00 -0000
+
+ros-noetic-audio-capture (0.2.4-1focal) focal; urgency=high
+
+  * Update CMakeLists.txt
+  * audio_capture: install launchfiles
+  * Contributors: David Gossow
+
+ -- Austin Hendrix <namniart@gmail.com>  Tue, 10 Sep 2013 07:00:00 -0000
+
+ros-noetic-audio-capture (0.2.3-1focal) focal; urgency=high
+
+  * Fix install rule for audio_capture.
+  * Contributors: Austin Hendrix
+
+ -- Austin Hendrix <namniart@gmail.com>  Mon, 15 Jul 2013 07:00:00 -0000
+
+ros-noetic-audio-capture (0.2.2-1focal) focal; urgency=high
+
+
+
+ -- Austin Hendrix <namniart@gmail.com>  Wed, 10 Apr 2013 07:00:00 -0000
+
+ros-noetic-audio-capture (0.2.1-1focal) focal; urgency=high
+
+
+
+ -- Austin Hendrix <namniart@gmail.com>  Mon, 08 Apr 2013 20:59:00 -0000
+
+ros-noetic-audio-capture (0.2.0-1focal) focal; urgency=high
+
+  * Finish catkinizing audio_common.
+  * Catkinize audio_play.
+  * Catkinize audio_capture.
+  * Fix typo in package.xml
+  * Versions and more URLs.
+  * Convert manifests to package.xml
+  * Convert audio_capture manifest to package.xml
+  * Ditch old makefiles.
+  * Updates manifest
+  * Updated manifests for rodep2
+  * oneiric build fixes, bump version to 0.1.6
+  * Removed redundant thread::thread
+  * Added a rosdep.yaml file
+  * Fixed to use audio_common_msgs
+  * Added ability to use different festival voices
+  * Updated documentation
+  * Added ability to capture to file
+  * Fixed ignore files
+  * Added hgignore files
+  * Audio_capture and audio_play working
+  * Making separate audio_capture and audio_play packages
+  * Moved audio_transport to audio_capture
+  * Contributors: Austin Hendrix, Brian Gerkey, Nate Koenig, nkoenig
+
+ -- Austin Hendrix <namniart@gmail.com>  Mon, 08 Apr 2013 20:49:00 -0000
+
+
