@@ -2,6 +2,9 @@
 Changelog for package audio_capture
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.3.18 (2024-08-13)
+-------------------
+
 0.3.17 (2023-06-08)
 -------------------
 * Merge pull request `#220 <https://github.com/ros-drivers/audio_common/issues/220>`_ from v4hn/master
